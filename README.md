@@ -5,7 +5,7 @@
 - **Spring Data JPA**
 - **Spring AMQP**
 - **Lombok**
-- **MondoDB**
+- **MongoDB**
 - **Maven**
 
 ### Documentação Swagger da API
