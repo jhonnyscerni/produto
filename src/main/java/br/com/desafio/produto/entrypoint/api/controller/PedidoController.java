@@ -17,9 +17,8 @@ public class PedidoController {
     private final BuscaPedidoPorCarrinhoIdUseCase buscaPedidoPorCarrinhoIdUseCase;
 
     @PostMapping
-    public Mono<ResponseEntity<Pedido>> criarPedido(@RequestBody Pedido pedido) {
-        return Mono.fromCallable(() -> criarPedidoUseCase.execute(pedido))
-                .map(ResponseEntity::ok);
+    public Mono<Pedido> criarPedido(@RequestBody Pedido pedido) {
+        return Mono.fromCallable(() -> criarPedidoUseCase.execute(pedido));
     }
 
     @GetMapping("/carrinho/{carrinhoId}")

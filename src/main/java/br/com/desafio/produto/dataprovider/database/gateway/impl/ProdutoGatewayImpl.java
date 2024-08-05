@@ -31,6 +31,15 @@ public class ProdutoGatewayImpl implements ProdutoGateway {
         return produtoRepository.findById(produtoId).map(this::toDomain);
     }
 
+    @Override
+    public void incrementarQuantidade(List<Produto> produtos) {
+        produtos.forEach(produto -> {
+            ProdutoEntity entity = produtoRepository.findById(produto.getId()).orElseThrow();
+            entity.setQuantidade(entity.getQuantidade() + produto.getQuantidade());
+            produtoRepository.save(entity);
+        });
+    }
+
     private Produto toDomain(ProdutoEntity entity) {
         Categoria categoria = Categoria.builder()
                 .id(entity.getCategoria().getId())

@@ -16,19 +16,14 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @Builder
-@Document(collection = "pedidos")
 public class Pedido {
 
-    @Id
     private String id;
 
-    @Field("carrinho")
     private Carrinho carrinho;
 
-    @Field("data_criacao")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dataCriacao;
 
-    @Field("status")
     private Status status;
 }

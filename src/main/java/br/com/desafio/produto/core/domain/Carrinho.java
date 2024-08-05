@@ -16,23 +16,17 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @Builder
-@Document(collection = "carrinhos")
 public class Carrinho {
 
-    @Id
     private String id;
 
-    @Field("produtos")
     private List<Produto> produtos;
 
-    @Field("quantidade")
     private int quantidade;
 
-    @Field("data_criacao")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dataCriacao;
 
-    @Field("data_alteracao")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dataAlteracao;
 }

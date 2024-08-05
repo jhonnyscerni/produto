@@ -10,4 +10,6 @@ public interface ProdutoGateway {
     List<Produto> findByCategoriaId(String categoriaId);
 
     Optional<Produto> findById(String produtoId);
+
+    void incrementarQuantidade(List<Produto> produtos);
 }
