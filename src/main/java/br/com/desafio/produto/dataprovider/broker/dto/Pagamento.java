@@ -1,9 +1,7 @@
 package br.com.desafio.produto.dataprovider.broker.dto;
 
 import br.com.desafio.produto.core.domain.Produto;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 

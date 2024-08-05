@@ -7,8 +7,10 @@ import br.com.desafio.produto.core.domain.Produto;
 import br.com.desafio.produto.core.gateway.PedidoGateway;
 import br.com.desafio.produto.dataprovider.database.entity.CarrinhoEntity;
 import br.com.desafio.produto.dataprovider.database.entity.PedidoEntity;
+import br.com.desafio.produto.dataprovider.database.entity.ProdutoEntity;
 import br.com.desafio.produto.dataprovider.database.repository.CarrinhoRepository;
 import br.com.desafio.produto.dataprovider.database.repository.PedidoRepository;
+import br.com.desafio.produto.dataprovider.database.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -21,12 +23,19 @@ import java.util.stream.Collectors;
 public class PedidoGatewayImpl implements PedidoGateway {
 
     private final PedidoRepository pedidoRepository;
-    private final CarrinhoRepository carrinhoRepository;
+    private final ProdutoRepository produtoRepository;
 
     @Override
     public Pedido save(Pedido pedido) {
         PedidoEntity entity = toEntity(pedido);
         PedidoEntity savedEntity = pedidoRepository.save(entity);
+
+        savedEntity.getCarrinho().getProdutos().forEach(produto -> {
+            ProdutoEntity produtoEntity = produtoRepository.findById(produto.getId()).orElseThrow();
+            produtoEntity.setQuantidade(produtoEntity.getQuantidade() - produto.getQuantidade());
+            produtoRepository.save(produtoEntity);
+        });
+
         return toDomain(savedEntity);
     }
 
@@ -50,6 +59,7 @@ public class PedidoGatewayImpl implements PedidoGateway {
                                         .nome(produto.getNome())
                                         .descricao(produto.getDescricao())
                                         .valor(produto.getValor())
+                                        .quantidade(produto.getQuantidade())
                                         .categoria(br.com.desafio.produto.dataprovider.database.entity.CategoriaEntity.builder()
                                                 .id(produto.getCategoria().getId())
                                                 .nome(produto.getCategoria().getNome())
@@ -75,6 +85,7 @@ public class PedidoGatewayImpl implements PedidoGateway {
                                 .nome(produtoEntity.getNome())
                                 .descricao(produtoEntity.getDescricao())
                                 .valor(produtoEntity.getValor())
+                                .quantidade(produtoEntity.getQuantidade())
                                 .categoria(Categoria.builder()
                                         .id(produtoEntity.getCategoria().getId())
                                         .nome(produtoEntity.getCategoria().getNome())

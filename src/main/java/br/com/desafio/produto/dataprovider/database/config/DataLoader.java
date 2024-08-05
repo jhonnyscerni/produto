@@ -55,6 +55,7 @@ public class DataLoader {
                     .nome("Smartphone")
                     .descricao("Smartphone de última geração")
                     .valor(new BigDecimal("1999.99"))
+                    .quantidade(10)
                     .categoria(categoria1)
                     .build();
 
@@ -63,6 +64,7 @@ public class DataLoader {
                     .nome("Livro de Java")
                     .descricao("Livro sobre programação em Java")
                     .valor(new BigDecimal("59.99"))
+                    .quantidade(10)
                     .categoria(categoria2)
                     .build();
 
@@ -71,6 +73,7 @@ public class DataLoader {
                     .nome("Camiseta")
                     .descricao("Camiseta de algodão")
                     .valor(new BigDecimal("29.99"))
+                    .quantidade(10)
                     .categoria(categoria3)
                     .build();
 
@@ -79,6 +82,7 @@ public class DataLoader {
                     .nome("Camiseta 2")
                     .descricao("Camiseta de algodão 2")
                     .valor(new BigDecimal("29.99"))
+                    .quantidade(10)
                     .categoria(categoria3)
                     .build();
 
