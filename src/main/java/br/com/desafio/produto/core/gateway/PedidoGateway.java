@@ -8,4 +8,6 @@ public interface PedidoGateway {
     Pedido save(Pedido pedido);
 
     Optional<Pedido> findByCarrinhoId(String carrinhoId);
+
+    void atulizarPedido(Pedido pedido);
 }

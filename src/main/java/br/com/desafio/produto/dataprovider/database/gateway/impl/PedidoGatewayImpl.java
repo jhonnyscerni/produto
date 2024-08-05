@@ -38,6 +38,12 @@ public class PedidoGatewayImpl implements PedidoGateway {
     }
 
     @Override
+    public void atulizarPedido(Pedido pedido) {
+        PedidoEntity entity = toEntity(pedido);
+        pedidoRepository.save(entity);
+    }
+
+    @Override
     public Optional<Pedido> findByCarrinhoId(String carrinhoId) {
 
         return pedidoRepository.findByCarrinhoId(carrinhoId)

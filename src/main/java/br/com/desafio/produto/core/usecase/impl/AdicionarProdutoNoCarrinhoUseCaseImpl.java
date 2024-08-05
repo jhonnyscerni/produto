@@ -30,7 +30,7 @@ public class AdicionarProdutoNoCarrinhoUseCaseImpl implements AdicionarProdutoNo
         pedidoGateway.findByCarrinhoId(carrinhoId)
                 .ifPresent(pedido -> {
                     pedido.setCarrinho(carrinho);
-                    pedidoGateway.save(pedido);
+                    pedidoGateway.atulizarPedido(pedido);
                 });
 
         carrinhoGateway.save(carrinho);
