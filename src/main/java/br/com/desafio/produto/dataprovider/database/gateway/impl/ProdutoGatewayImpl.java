@@ -22,6 +22,7 @@ public class ProdutoGatewayImpl implements ProdutoGateway {
     public List<Produto> findByCategoriaId(String categoriaId) {
         return produtoRepository.findByCategoriaId(categoriaId)
                 .stream()
+                .filter(entity -> entity.getQuantidade() > 0)
                 .map(this::toDomain)
                 .collect(Collectors.toList());
     }
