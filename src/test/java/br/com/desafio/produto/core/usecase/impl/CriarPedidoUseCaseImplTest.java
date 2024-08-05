@@ -1,5 +1,6 @@
 package br.com.desafio.produto.core.usecase.impl;
 
+import br.com.desafio.produto.core.domain.Carrinho;
 import br.com.desafio.produto.core.domain.Pedido;
 import br.com.desafio.produto.core.gateway.PedidoGateway;
 import br.com.desafio.produto.core.gateway.PedidoMessageGateway;
@@ -8,6 +9,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -28,7 +31,8 @@ class CriarPedidoUseCaseImplTest {
     @Test
     void deveCriarPedidoComSucesso() {
         // Arrange
-        Pedido pedido = new Pedido();
+        Pedido pedido = Pedido.builder()
+                .build();
         when(pedidoGateway.save(pedido)).thenReturn(pedido);
 
         // Act

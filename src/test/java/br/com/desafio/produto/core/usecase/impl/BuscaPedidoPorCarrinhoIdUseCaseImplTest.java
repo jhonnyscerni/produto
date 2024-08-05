@@ -27,7 +27,8 @@ class BuscaPedidoPorCarrinhoIdUseCaseImplTest {
     void deveRetornarPedidoQuandoCarrinhoIdExistir() {
         // Arrange
         String carrinhoId = "1";
-        Pedido pedido = new Pedido();
+        Pedido pedido = Pedido.builder()
+                .build();
         when(pedidoGateway.findByCarrinhoId(carrinhoId)).thenReturn(Optional.of(pedido));
 
         // Act

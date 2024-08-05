@@ -63,8 +63,12 @@ class AdicionarProdutoNoCarrinhoUseCaseImplTest {
         String produtoId = "1";
         String carrinhoId = "1";
 
+        Carrinho carrinho = Carrinho.builder()
+                .produtos(new ArrayList<>())
+                .build();
+
         when(produtoGateway.findById(produtoId)).thenReturn(Optional.empty());
-        when(carrinhoGateway.findById(carrinhoId)).thenReturn(Optional.of(new Carrinho()));
+        when(carrinhoGateway.findById(carrinhoId)).thenReturn(Optional.of(carrinho));
 
         // Act & Assert
         assertThrows(IllegalArgumentException.class, () ->

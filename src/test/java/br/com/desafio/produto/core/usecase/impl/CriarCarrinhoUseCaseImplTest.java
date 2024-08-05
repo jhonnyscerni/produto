@@ -8,6 +8,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
@@ -24,7 +26,9 @@ class CriarCarrinhoUseCaseImplTest {
     @Test
     void deveCriarCarrinhoComSucesso() {
         // Arrange
-        Carrinho carrinho = new Carrinho();
+        Carrinho carrinho = Carrinho.builder()
+                .produtos(new ArrayList<>())
+                .build();
         when(carrinhoGateway.save(carrinho)).thenReturn(carrinho);
 
         // Act

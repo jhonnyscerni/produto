@@ -29,8 +29,9 @@ class CarrinhoGatewayImplTest {
     @Test
     void deveSalvarCarrinhoComSucesso() {
         // Arrange
-        Carrinho carrinho = new Carrinho();
-        carrinho.setProdutos(new ArrayList<>()); // Inicializa a lista de produtos
+        Carrinho carrinho = Carrinho.builder()
+                .produtos(new ArrayList<>())
+                .build();
         CarrinhoEntity carrinhoEntity = new CarrinhoEntity();
         carrinhoEntity.setProdutos(new ArrayList<>());
         when(carrinhoRepository.save(any(CarrinhoEntity.class))).thenReturn(carrinhoEntity);

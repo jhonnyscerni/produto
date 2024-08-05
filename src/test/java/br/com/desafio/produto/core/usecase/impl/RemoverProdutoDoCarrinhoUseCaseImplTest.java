@@ -37,8 +37,9 @@ class RemoverProdutoDoCarrinhoUseCaseImplTest {
         // Arrange
         String carrinhoId = "1";
         String produtoId = "1";
-        Carrinho carrinho = new Carrinho();
-        carrinho.setProdutos(new ArrayList<>());
+        Carrinho carrinho = Carrinho.builder()
+                .produtos(new ArrayList<>())
+                .build();
         Produto produto = new Produto();
         produto.setId(produtoId);
         carrinho.getProdutos().add(produto);
@@ -76,7 +77,9 @@ class RemoverProdutoDoCarrinhoUseCaseImplTest {
         // Arrange
         String carrinhoId = "1";
         String produtoId = "1";
-        Carrinho carrinho = new Carrinho();
+        Carrinho carrinho = Carrinho.builder()
+                .produtos(new ArrayList<>())
+                .build();
 
         when(carrinhoGateway.findById(carrinhoId)).thenReturn(Optional.of(carrinho));
         when(produtoGateway.findById(produtoId)).thenReturn(Optional.empty());
