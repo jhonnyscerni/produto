@@ -1,9 +1,6 @@
 package br.com.desafio.produto.dataprovider.database.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -11,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Document(collection = "categorias")
 public class CategoriaEntity {

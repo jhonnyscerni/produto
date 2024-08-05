@@ -1,13 +1,13 @@
 package br.com.desafio.produto.core.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import java.math.BigDecimal;
 
+@Setter
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Produto {
 

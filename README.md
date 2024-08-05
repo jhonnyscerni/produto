@@ -17,6 +17,9 @@
 ### Filas Criadas no RabbitMQ 
 ![RabbitMQ.png](src%2Fmain%2Fresources%2Fimg%2FRabbitMQ.png)
 
+### Testes unitarios na Camada de UseCase e Gaeway
+![testes unitarios.png](src%2Fmain%2Fresources%2Fimg%2Ftestes%20unitarios.png)
+
 ### Videos
 
 

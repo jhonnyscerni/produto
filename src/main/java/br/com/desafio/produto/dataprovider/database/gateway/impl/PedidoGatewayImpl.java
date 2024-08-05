@@ -8,13 +8,11 @@ import br.com.desafio.produto.core.gateway.PedidoGateway;
 import br.com.desafio.produto.dataprovider.database.entity.CarrinhoEntity;
 import br.com.desafio.produto.dataprovider.database.entity.PedidoEntity;
 import br.com.desafio.produto.dataprovider.database.entity.ProdutoEntity;
-import br.com.desafio.produto.dataprovider.database.repository.CarrinhoRepository;
 import br.com.desafio.produto.dataprovider.database.repository.PedidoRepository;
 import br.com.desafio.produto.dataprovider.database.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 

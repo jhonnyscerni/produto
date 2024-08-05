@@ -2,10 +2,7 @@ package br.com.desafio.produto.dataprovider.database.entity;
 
 import br.com.desafio.produto.core.domain.Carrinho;
 import br.com.desafio.produto.core.domain.enums.Status;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -15,6 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Document(collection = "pedidos")
 public class PedidoEntity {
